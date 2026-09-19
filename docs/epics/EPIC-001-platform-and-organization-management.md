@@ -51,13 +51,15 @@ None recorded. Rules discovered during refinement are written to
 | ID | Question |
 | --- | --- |
 | [`OQ-035`](../product/open-questions.md) | How is the SaaS itself sold — subscription tiers, per-branch, per-user, trial? |
-| [`OQ-014`](../product/open-questions.md) | Is cross-organization data sharing ever permitted? |
+| [`OQ-014`](../product/open-questions.md) | Under what circumstances, if any, should controlled cross-organization data sharing be permitted? |
 
 ## Authorization and tenancy — `TODO`
 
 Which roles may act in this epic, and how branch scoping applies, cannot be stated until
 [OQ-019](../product/open-questions.md) is answered. [NFR-001](../product/non-functional-requirements.md)
-(tenant isolation) applies unconditionally.
+(tenant isolation) applies to all work in this epic; any cross-organization access would need
+a separate `CONFIRMED` requirement, which does not exist — see
+[OQ-014](../product/open-questions.md).
 
 ## Notes
 

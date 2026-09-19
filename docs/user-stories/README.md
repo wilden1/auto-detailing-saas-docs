@@ -1,7 +1,7 @@
 ---
 title: User Story Index
 type: index
-status: CONFIRMED
+status: ACTIVE
 owner: TBD
 created: 2026-09-19
 updated: 2026-09-19

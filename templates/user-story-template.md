@@ -46,8 +46,8 @@ not only the happy path.
 | --- | --- | --- |
 | <role> | Yes / No | Own branch / All branches in organization / Organization-wide |
 
-**Tenant isolation:** <what must not be reachable across organizations here — see
-[NFR-001](../product/non-functional-requirements.md)>
+**Tenant isolation:** <what must not be reachable outside the acting user's authorized
+organizational context here — see [NFR-001](../product/non-functional-requirements.md)>
 
 ## Business rules applied
 

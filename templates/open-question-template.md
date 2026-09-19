@@ -10,10 +10,12 @@ updated: <YYYY-MM-DD>
 
 # OQ-### — <The question>
 
-> Most open questions are a single row in
-> [docs/product/open-questions.md](../docs/product/open-questions.md). Use this longer form
-> only when the question needs context, options or analysis to be answerable — then link to
-> it from the register.
+> **Most open questions are a single row** in the register at
+> `docs/product/open-questions.md`. Use this longer form only when a question needs context,
+> options or analysis to be answerable.
+>
+> **File it as** `docs/product/open-questions/OQ-###-slug.md`, and link to it from that
+> question's row in the register. The relative links below assume that location.
 
 | | |
 | --- | --- |

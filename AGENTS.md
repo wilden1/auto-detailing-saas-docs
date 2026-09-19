@@ -155,7 +155,7 @@ marked as illustrative and non-binding.
 | Workflow | `docs/workflows/WF-###-slug.md` | `workflow-template.md` |
 | Module overview | `docs/modules/MOD-###-slug.md` | `module-template.md` |
 | Architecture decision | `docs/architecture/decisions/ADR-###-slug.md` | `adr-template.md` |
-| Open question | append to `docs/product/open-questions.md` | `open-question-template.md` |
+| Open question | a row in `docs/product/open-questions.md`; long form in `docs/product/open-questions/` | `open-question-template.md` |
 | NFR | `docs/product/non-functional-requirements.md` | `nfr-template.md` |
 | Sprint record | `docs/agile/sprints/SPRINT-##.md` | `sprint-template.md` |
 

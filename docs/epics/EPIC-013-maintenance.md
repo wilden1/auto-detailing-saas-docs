@@ -56,7 +56,9 @@ None recorded. Rules discovered during refinement are written to
 
 Which roles may act in this epic, and how branch scoping applies, cannot be stated until
 [OQ-019](../product/open-questions.md) is answered. [NFR-001](../product/non-functional-requirements.md)
-(tenant isolation) applies unconditionally.
+(tenant isolation) applies to all work in this epic; any cross-organization access would need
+a separate `CONFIRMED` requirement, which does not exist — see
+[OQ-014](../product/open-questions.md).
 
 ## Notes
 

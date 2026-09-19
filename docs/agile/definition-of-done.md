@@ -47,9 +47,9 @@ A documentation item is `DONE` when:
 
 **Security and tenancy** *(non-negotiable — [NFR-001](../product/non-functional-requirements.md), [NFR-002](../product/non-functional-requirements.md))*
 
-- [ ] Authorization is enforced for every new operation, server-side
-- [ ] Tenant isolation is verified: it is proven that a user of one organization cannot reach
-      another organization's data through this change
+- [ ] Authorization is enforced for every new protected operation
+- [ ] Tenant isolation is verified: it is proven that this change does not let a user reach
+      data outside their authorized organizational context
 - [ ] Branch scoping behaves as the story specifies
 - [ ] No authorization was loosened, stubbed or bypassed anywhere, including in tests and
       local development configuration
@@ -86,3 +86,4 @@ A documentation item is `DONE` when:
 | Date | Change | By |
 | --- | --- | --- |
 | 2026-09-19 | Drafted during Phase 0 initialization; split into documentation (active) and implementation (future) definitions. | Drafted by Claude Code |
+| 2026-09-19 | Tenancy and authorization checks reworded to match the rewritten `NFR-001`/`NFR-002`. Removed "server-side", which is implementation detail not present in the canonical requirement. | Product owner decision |

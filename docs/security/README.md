@@ -14,13 +14,22 @@ Two things here are `CONFIRMED` and binding. Everything else is open.
 
 ## Binding principles — `CONFIRMED`
 
-| ID | Principle |
-| --- | --- |
-| [`NFR-001`](../product/non-functional-requirements.md) | **Tenant isolation.** No user may read or modify another organization's data. Isolation holds at every layer and is never bypassed — not for tests, not for local development, not for a demo. |
-| [`NFR-002`](../product/non-functional-requirements.md) | **Authorization is mandatory.** Every operation is authorized server-side against the acting user's role and branch scope. Exceptions exist only where a `CONFIRMED` requirement defines one. |
+| ID | Principle | Canonical wording |
+| --- | --- | --- |
+| `NFR-001` | Tenant isolation | [non-functional-requirements.md](../product/non-functional-requirements.md) |
+| `NFR-002` | Authorization is mandatory | [non-functional-requirements.md](../product/non-functional-requirements.md) |
+
+**The wording of both lives in exactly one place** — the file linked above. It is not
+restated here. An earlier version of this page carried its own paraphrase, which had already
+drifted from the canonical text (it added "server-side", which the requirement does not say).
 
 These are not negotiable and not deferrable to "after the feature works".
 [AGENTS.md rules 7–8](../../AGENTS.md).
+
+Note what `NFR-001` does **not** say: it does not rule out controlled cross-organization
+access. Whether any such access should exist, and under what circumstances, is
+[OQ-014](../product/open-questions.md) — `OPEN`. Nothing may be designed on the assumption of
+either answer.
 
 ## Tenancy model — `PROPOSED`
 
@@ -35,7 +44,7 @@ Unresolved, and each answer changes the security model materially:
 
 | Question | |
 | --- | --- |
-| Is cross-organization access ever permitted? | [OQ-014](../product/open-questions.md) |
+| Under what circumstances, if any, is controlled cross-organization access permitted? | [OQ-014](../product/open-questions.md) |
 | Open-by-default or explicitly granted cross-branch access? | [OQ-015](../product/open-questions.md) |
 | Can a user span branches or organizations? | [OQ-016](../product/open-questions.md) |
 | Is a platform-wide vehicle identity compatible with tenant isolation? | [OQ-013](../product/open-questions.md) |
@@ -81,3 +90,4 @@ it is kept — [OQ-040](../product/open-questions.md).
 | Date | Change | By |
 | --- | --- | --- |
 | 2026-09-19 | Created during Phase 0 initialization. `NFR-001`/`NFR-002` recorded as binding; role model and privacy obligations left open. | Drafted by Claude Code |
+| 2026-09-19 | Removed the locally-worded copies of `NFR-001`/`NFR-002` in favour of references to the canonical definitions, after the paraphrase here was found to have drifted (it added "server-side"). Aligned the `OQ-014` wording. | Product owner decision |

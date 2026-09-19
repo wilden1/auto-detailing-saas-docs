@@ -49,6 +49,10 @@ Every requirement-bearing document carries a status. Nothing is assumed to be fi
 | `DEFERRED` | Deliberately postponed. Not in the current horizon. |
 | `DEPRECATED` | Was once agreed, now withdrawn. Kept for traceability. |
 
+Documents that assert no requirements — indexes, standards, registers — use a separate,
+smaller vocabulary instead: `ACTIVE`, `DRAFT`, `SUPERSEDED`. ADRs use their own
+(`Proposed` / `Accepted` / `Superseded` / `Rejected`).
+
 Full definitions: [docs/meta/identifiers-and-status.md](docs/meta/identifiers-and-status.md)
 
 ## Identifier conventions (quick reference)

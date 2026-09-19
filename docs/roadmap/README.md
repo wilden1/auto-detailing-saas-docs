@@ -27,7 +27,7 @@ related: [OQ-005, OQ-037]
 | Identify major workflows | Reserved, none written — [workflows](../workflows/README.md) |
 | Identify epics | Done — 15 placeholders, all `PROPOSED` |
 | Build initial product backlog | Done — [product-backlog.md](../agile/product-backlog.md), unprioritized |
-| Identify open questions | Done — 40 recorded, all open |
+| Identify open questions | Done — 41 recorded, all open |
 | Refine features and user stories | Not started — blocked on the high-impact questions |
 | Define architecture | Not started — deliberately |
 

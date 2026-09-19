@@ -88,7 +88,7 @@ assumed either way.
 | Can customers self-book online? | [OQ-010](open-questions.md) |
 | Which languages must the interface support? | [OQ-011](open-questions.md) |
 | Is appointment/bay/technician scheduling capacity-aware? | [OQ-020](open-questions.md) |
-| Is there a mobile app, or responsive web only? | [OQ-009](open-questions.md) |
+| Do staff need a native mobile app, or is responsive web enough? | [OQ-041](open-questions.md) |
 | Does the Platform own customer messaging, or integrate with WhatsApp? | [OQ-033](open-questions.md) |
 | Is there a free tier / trial / subscription billing for the SaaS itself? | [OQ-035](open-questions.md) |
 
