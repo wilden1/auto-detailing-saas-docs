@@ -47,7 +47,7 @@ but without it, no scope decision has a tiebreaker.
 
 | ID | Question | Impact | Why it matters | Status |
 | --- | --- | --- | --- | --- |
-| `OQ-001` | What is the product's name? | LOW | Repository, documents and UI all carry a placeholder ("the Platform") until decided. Cheap to change now, expensive later. | OPEN |
+| `OQ-001` | Does the system need a name of its own, distinct from PRO-TECH? | LOW | **PRO-TECH is the company, not the product.** The repository and several documents still carry the superseded "Platform" placeholder, which is now reserved for the deferred multi-tenant concept. Cheap to settle now. | OPEN |
 | `OQ-002` | Which markets are we launching in — Malaysia only, or wider? | HIGH | Drives language, tax/e-Invoice obligations, payment methods, data residency, messaging channels. | OPEN |
 | `OQ-003` | Which business types are in the launch scope (detailing, coating, PPF, tint, wrap) and which come later? | HIGH | Each type has different job durations, warranty behaviour and inspection needs. Building for all five at once is a different product. | OPEN |
 | `OQ-004` | Who buys, and who uses it daily? Are they the same person? | MEDIUM | Determines what the product must prove (owner: money and control; staff: speed). | OPEN |
@@ -63,7 +63,7 @@ but without it, no scope decision has a tiebreaker.
 | `OQ-009` | Is there a customer-facing portal or app, or is the Platform staff-only? | HIGH | Affects authentication, warranty verification, job-progress visibility, follow-up design. | OPEN |
 | `OQ-010` | Can customers self-book online without staff involvement? | MEDIUM | Adds availability/capacity modelling and public-facing surfaces. | OPEN |
 | `OQ-011` | Which languages must the interface support (English, Bahasa Malaysia, Chinese)? | MEDIUM | Retrofitting localization is costly; deciding now is nearly free. | OPEN |
-| `OQ-035` | How is the SaaS itself sold — subscription tiers, per-branch, per-user, free trial? | MEDIUM | Affects tenant provisioning, limits, and whether billing is an epic. | OPEN |
+| `OQ-035` | How is the SaaS itself sold — subscription tiers, per-branch, per-user, free trial? | MEDIUM | **Not a V1 question** — SaaS billing is deferred ([ADR-002](../architecture/decisions/ADR-002-v1-single-company-scope.md)). Affects tenant provisioning, limits, and whether billing is an epic. | OPEN |
 
 ## 3. Tenancy, ownership and data boundaries
 
@@ -71,12 +71,15 @@ but without it, no scope decision has a tiebreaker.
 | --- | --- | --- | --- | --- |
 | `OQ-012` | Is a Customer owned by the Organization or by a Branch? | HIGH | The single most consequential modelling decision. Determines duplicate handling, cross-branch visibility, and every authorization check. | OPEN |
 | `OQ-013` | Is a Vehicle unique platform-wide, or per Organization? | HIGH | A platform-wide vehicle identity enables a true "Vehicle Passport" across businesses but raises serious privacy and competitive questions. | OPEN |
-| `OQ-014` | Under what circumstances, if any, should controlled cross-organization data sharing be permitted? | HIGH | [`NFR-001`](non-functional-requirements.md) confirms tenant isolation as a principle while leaving room for controlled cross-organization access defined by a future `CONFIRMED` requirement. This question is what would define one. **Candidate scenarios are research topics, not requirements** — see below. | OPEN |
+| `OQ-014` | Under what circumstances, if any, should controlled cross-organization data sharing be permitted? | HIGH | **Not a V1 question** — V1 is single-company ([ADR-002](../architecture/decisions/ADR-002-v1-single-company-scope.md)). Retained for future productization. [`NFR-001`](non-functional-requirements.md) confirms tenant isolation as a principle while leaving room for controlled cross-organization access defined by a future `CONFIRMED` requirement. This question is what would define one. **Candidate scenarios are research topics, not requirements** — see below. | OPEN |
 | `OQ-015` | What makes a branch "authorized" to access another branch's customer, vehicle, service and warranty history — open by default within the organization, or explicitly granted? | HIGH | `PG-003` is stated as a goal but has no rules. Both readings are defensible and they produce different systems. | OPEN |
 | `OQ-016` | Can one user belong to multiple branches? To multiple organizations? | HIGH | Affects session model, branch switching, and every scoped query. | OPEN |
 | `OQ-017` | What identifies a Vehicle — registration number, VIN, or both? What happens when a plate changes or is transferred? | HIGH | Malaysian plates are transferable between vehicles. Getting this wrong corrupts vehicle history permanently. | OPEN |
 | `OQ-018` | What data residency, retention and PDPA obligations apply? | HIGH | Affects hosting, backups, photo retention, deletion rights. Depends on `OQ-002`. | OPEN |
 | `OQ-040` | What must be audit-logged, who can read the log, and for how long is it kept? | MEDIUM | Audit logging is listed as a platform concern with no definition. | OPEN |
+| `OQ-042` | Does an explicit `Company` / `Organization` entity exist in the V1 domain model, or is PRO-TECH implicit? | HIGH | [ADR-002](../architecture/decisions/ADR-002-v1-single-company-scope.md) says keep generic concepts *and* add no complexity for hypothetical tenants. This is the exact point where those two pull against each other. An implicit company is simpler now; an explicit one makes productization an extension rather than a rewrite. | OPEN |
+| `OQ-043` | How many branches does PRO-TECH operate today, and what growth is expected? | HIGH | Determines whether multi-branch is the central design concern or a near-term readiness concern. Currently unknown — it is a fact to research, not a decision. | OPEN |
+| `OQ-044` | Is HQ a Branch, a level above Branch, or a permission scope that certain staff hold? | HIGH | The stated hierarchy has HQ between Company and Branch, but it is undefined. Affects `OQ-015` (cross-branch access), `OQ-019` (roles), reporting and every scoped query. | OPEN |
 
 ### `OQ-014` — candidate scenarios, held as research topics
 
@@ -152,5 +155,6 @@ understood. `OQ-013` and `OQ-018` are closely related.
 | Date | Change | By |
 | --- | --- | --- |
 | 2026-09-19 | Register created during Phase 0 initialization with `OQ-001`–`OQ-040`. | Drafted by Claude Code |
+| 2026-09-19 | **V1 direction change** ([ADR-002](../architecture/decisions/ADR-002-v1-single-company-scope.md)). Added `OQ-042`, `OQ-043`, `OQ-044` on V1 company/branch structure. Reframed `OQ-001` in place — PRO-TECH is the company, not the product — rather than raising a fourth question, which would have duplicated it. `OQ-014` and `OQ-035` stay `OPEN` but are **not V1 questions**; see [future-productization](../future-productization/README.md). | Product owner decision |
 | 2026-09-19 | `OQ-014` rewritten from "Is cross-organization data sharing ever permitted?" to "Under what circumstances, if any, should controlled cross-organization data sharing be permitted?". Status stays `OPEN` — the question is **not** answered. Candidate scenarios recorded as research topics only, explicitly not requirements. | Product owner decision |
 | 2026-09-19 | Review cleanup. Added `OQ-041` — `OQ-009` was being cited for two different questions, customer login and staff device (finding 3). Rewrote the "eight that block the most" table so it no longer restates question text; the two wordings of `OQ-009` had already diverged (finding 4). | Drafted by Claude Code |

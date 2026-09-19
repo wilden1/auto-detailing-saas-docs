@@ -78,19 +78,38 @@ either until it is resolved. Record the resolution in the affected documents.
 Never promote a status. Only the product owner does that, and the change is recorded in
 the document.
 
-## 7. Respect organization and tenant boundaries
+## 7. Respect company and branch boundaries
 
-The Platform is multi-tenant. The intended hierarchy is
-**Platform → Organization → Branch → Users/Staff**
+**V1 is a single-company system.** It is built for one business — **PRO-TECH** — operating
+multiple branches. The hierarchy is:
+
+**Company (PRO-TECH) → HQ / Management → Branch → Staff**
 (status: PROPOSED — see [docs/data/README.md](docs/data/README.md)).
 
-Every design and, later, every query, endpoint and UI must be scoped to the acting user's
-organization. Cross-organization data access is not permitted unless a `CONFIRMED`
-requirement explicitly allows it. Cross-**branch** access within one organization is a
-stated product goal but its rules are **not yet defined** — see
-[OQ-015](docs/product/open-questions.md).
+**Multi-tenancy is not a V1 requirement.** Do not design tenant provisioning, tenant
+onboarding, tenant-specific configuration, or cross-tenant anything into V1, and do not add
+complexity solely to support hypothetical future tenants. See
+[ADR-002](docs/architecture/decisions/ADR-002-v1-single-company-scope.md).
 
-When tenancy scoping is unclear for something you are asked to design, that is a blocker,
+**What does apply in V1 is branch scoping.** Which branch a record belongs to, what HQ can
+see across branches, what one branch may see of another, and whether staff can work across
+branches are real V1 questions — and all are **unresolved**:
+[OQ-012](docs/product/open-questions.md), [OQ-015](docs/product/open-questions.md),
+[OQ-016](docs/product/open-questions.md), [OQ-044](docs/product/open-questions.md).
+
+Two constraints pull against each other. Both are deliberate, and holding both is the point:
+
+1. Do not add complexity solely to support hypothetical future tenants.
+2. Do not hardcode PRO-TECH-specific assumptions where a clean generic concept — Company,
+   Branch, Customer, Vehicle, Job — is sufficient.
+
+> **Known unresolved conflict.** [`NFR-001`](docs/product/non-functional-requirements.md) is
+> `CONFIRMED` and requires tenant isolation. Under the V1 direction there is only one
+> company, so it has nothing to isolate from. The product owner has **deferred** this
+> decision. Until it is made, do not resolve the conflict yourself in either direction, and
+> do not build multi-tenancy on the strength of `NFR-001`.
+
+When branch scoping is unclear for something you are asked to design, that is a blocker,
 not a detail to fill in later.
 
 ## 8. Security and authorization are never bypassed for convenience

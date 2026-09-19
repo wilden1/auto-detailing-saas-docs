@@ -8,10 +8,17 @@ AGENTS.md wins and the conflict should be reported.
 
 ## Project in one paragraph
 
-A multi-tenant SaaS platform for automotive detailing and related automotive appearance
-businesses (ceramic coating, PPF, tinting, wrapping), supporting single-branch and
-multi-branch operators. It aims to manage the full customer and vehicle lifecycle, not just
-bookings. **The project is in Phase 0 — documentation only. No application code.**
+**V1 is a single-company, multi-branch Automotive Detailing Management System for
+PRO-TECH** — one business operating multiple branches. It aims to manage the full customer
+and vehicle lifecycle (detailing, ceramic coating, PPF, tinting, wrapping), not just
+bookings.
+
+**Multi-tenancy is not a V1 requirement.** There is a longer-term intention to productize
+this into a multi-tenant SaaS for other detailing businesses, but nothing may be built for
+that in V1 — see [ADR-002](docs/architecture/decisions/ADR-002-v1-single-company-scope.md)
+and [docs/future-productization/](docs/future-productization/README.md).
+
+**The project is in Phase 0 — documentation only. No application code.**
 
 ## The thirteen rules, compressed
 
@@ -21,7 +28,7 @@ bookings. **The project is in Phase 0 — documentation only. No application cod
 4. Flag ambiguity; never silently pick a reading.
 5. Report conflicts between documents with `file:line`; do not resolve them yourself.
 6. Respect requirement status. `PROPOSED` is not `CONFIRMED`.
-7. Respect organization and tenant boundaries in every design.
+7. Respect company and branch boundaries. V1 is single-company; branch scoping is the live concern, multi-tenancy is not.
 8. Never bypass security or authorization for convenience.
 9. Cite requirement IDs (`US-###`, `BR-###`) in recommendations, commits and PRs.
 10. If implementation changes an approved design, update the documentation in the same change.
