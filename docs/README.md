@@ -25,7 +25,7 @@ and [AGENTS.md](../AGENTS.md).
 | [product/personas.md](product/personas.md) | `PROPOSED` | Who uses it — candidates only, no research yet |
 | [product/glossary.md](product/glossary.md) | `PROPOSED` | What our words mean. **Read before writing.** |
 | [product/non-functional-requirements.md](product/non-functional-requirements.md) | `PROPOSED` | Quality constraints, `NFR-###` |
-| [product/open-questions.md](product/open-questions.md) | `ACTIVE` | **Everything not decided — 41 questions** |
+| [product/open-questions.md](product/open-questions.md) | `ACTIVE` | **Everything not decided — 44 questions** |
 
 ## Agile process
 
@@ -55,7 +55,7 @@ and [AGENTS.md](../AGENTS.md).
 | --- | --- |
 | [ui-ux/](ui-ux/README.md) | Nothing designed |
 | [architecture/](architecture/README.md) | Constraints and pending decisions only — **no technology chosen** |
-| [architecture/decisions/](architecture/decisions/README.md) | `ADR-001` accepted |
+| [architecture/decisions/](architecture/decisions/README.md) | `ADR-001`, `ADR-002` accepted |
 | [data/](data/README.md) | Candidate entities; ownership boundaries open — **no schema** |
 | [api/](api/README.md) | `DEFERRED` to Phase 1 |
 | [security/](security/README.md) | `NFR-001`/`NFR-002` binding; role model open |
@@ -66,6 +66,7 @@ and [AGENTS.md](../AGENTS.md).
 | Document | Purpose |
 | --- | --- |
 | [roadmap/](roadmap/README.md) | Phases and exit criteria — no dates |
+| [future-productization/](future-productization/README.md) | Deferred multi-tenant SaaS concerns — **not V1 requirements** |
 | [meta/documentation-standards.md](meta/documentation-standards.md) | How to write documents here |
 | [meta/identifiers-and-status.md](meta/identifiers-and-status.md) | ID conventions and status taxonomy |
 | [meta/traceability.md](meta/traceability.md) | Product goal → epic → feature → story → AC → test |
@@ -79,7 +80,7 @@ and [AGENTS.md](../AGENTS.md).
   level, the phase we are in, and two binding security principles.
 - **`PROPOSED`:** everything about the product — vision wording, goals, scope, epics,
   modules, personas, glossary definitions.
-- **Open:** 41 questions, none answered. The eight that block the most are listed at the top
+- **Open:** 44 questions, none answered. The eight that block the most are listed at the top
   of [open-questions.md](product/open-questions.md).
 
 **Nothing here is ready to build against.**

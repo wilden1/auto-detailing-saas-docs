@@ -18,6 +18,7 @@ this?" long after everyone involved has forgotten.
 | ID | Decision | Status | Date |
 | --- | --- | --- | --- |
 | [ADR-001](ADR-001-documentation-first-and-adr-process.md) | Documentation-first Phase 0, with ADRs for significant decisions | Accepted | 2026-09-19 |
+| [ADR-002](ADR-002-v1-single-company-scope.md) | V1 is a single-company multi-branch system for PRO-TECH, not a multi-tenant SaaS | Accepted | 2026-09-19 |
 
 ## When to write one
 

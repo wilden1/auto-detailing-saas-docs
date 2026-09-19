@@ -20,13 +20,23 @@ these meanings.** If you need a word that is not here, add it here first.
 
 | Term | Working definition | Notes |
 | --- | --- | --- |
-| **Platform** | The SaaS product as a whole, operated by us and shared by all customer businesses. | |
-| **Organization** (Company) | One customer business that subscribes to the Platform. The top-level tenant boundary. | |
-| **Tenant** | Synonym for Organization in a technical context. One tenant = one Organization. | ⚠️ Confirm that the tenant boundary is the Organization and never the Branch — [OQ-012](open-questions.md) |
-| **Branch** | A physical location or operating unit belonging to one Organization. An Organization has at least one. | |
-| **Single-branch business** | An Organization with exactly one Branch. Must not feel burdened by multi-branch concepts. | |
-| **Staff / User** | A person with a login, belonging to an Organization and working at one or more Branches. | ⚠️ Multi-branch membership undecided — [OQ-016](open-questions.md) |
+| **PRO-TECH** | The automotive detailing business this system is built for. **In V1 there is exactly one company, and it is PRO-TECH.** | ⚠️ Branch count today unknown — [OQ-043](open-questions.md) |
+| **Company** (Organization) | A business that owns branches, staff, customers, vehicles and jobs. Retained as a **generic** concept — not replaced by "PRO-TECH" — so future productization stays possible without redesign. See [ADR-002](../architecture/decisions/ADR-002-v1-single-company-scope.md). | ⚠️ Whether an explicit Company entity exists in V1, or PRO-TECH is implicit — [OQ-042](open-questions.md) |
+| **HQ / Management** | PRO-TECH's central function, as distinct from an individual branch. | ⚠️ Whether HQ is a Branch, a level above Branch, or a permission scope — [OQ-044](open-questions.md) |
+| **Branch** | A physical location or operating unit belonging to one Company. A Company has at least one. | |
+| **Staff / User** | A person with a login, belonging to the Company and working at one or more Branches. | ⚠️ Multi-branch membership undecided — [OQ-016](open-questions.md) |
 | **Role** | A named set of permissions assigned to a user. | ⚠️ Role list undefined — [OQ-019](open-questions.md) |
+
+### Not V1 concepts
+
+Deferred to future productization. **Do not use these terms when describing V1** — using
+them is how multi-tenancy creeps into a single-company system.
+
+| Term | Working definition | Status |
+| --- | --- | --- |
+| **Platform** | A SaaS product operated by us and shared by many customer businesses. | `DEFERRED` — see [future-productization](../future-productization/README.md) |
+| **Tenant** | One isolated customer business within a multi-tenant platform. | `DEFERRED` — not a V1 concept |
+| **Single-branch business** | A company with exactly one branch, which must not feel burdened by multi-branch concepts. | `DEFERRED` — a productization concern. PRO-TECH's branch count is a fact to research ([OQ-043](open-questions.md)), not a variable to design for |
 
 ## Customer and vehicle
 
@@ -105,3 +115,4 @@ loyalty, membership.*
 | Date | Change | By |
 | --- | --- | --- |
 | 2026-09-19 | Created during Phase 0 initialization. Working definitions drafted from the product owner's own vocabulary; material ambiguities marked ⚠️ and raised as open questions rather than resolved. | Drafted by Claude Code |
+| 2026-09-19 | **V1 direction change.** Added `PRO-TECH` and `HQ / Management`. `Organization` renamed to `Company` (kept generic per [ADR-002](../architecture/decisions/ADR-002-v1-single-company-scope.md)). `Platform`, `Tenant` and `Single-branch business` moved to a "Not V1 concepts" section rather than deleted — they remain meaningful for future productization. | Product owner decision |

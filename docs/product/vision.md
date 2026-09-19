@@ -17,10 +17,29 @@ related: [OQ-001, OQ-002, OQ-005]
 
 ## 1. What we are building — `CONFIRMED`
 
-A **multi-tenant SaaS platform for automotive detailing and related automotive
-appearance/service businesses**, supporting both single-branch and multi-branch operators.
+**V1 is a single-company, multi-branch Automotive Detailing Management System for
+PRO-TECH.** PRO-TECH may operate multiple branches, so multi-branch operation is an
+important V1 requirement.
 
-Target business types under consideration:
+```
+PRO-TECH
+  → HQ / Management
+    → Multiple Branches
+      → Staff → Customers → Vehicles → Quotations → Appointments / Walk-ins
+        → Jobs → Inspections → QC → Payments → Warranties → Maintenance / Follow-up
+```
+
+**V1 is not a multi-tenant SaaS platform.** There is a longer-term intention to potentially
+productize the system and offer it to other automotive detailing businesses, but
+multi-tenancy, tenant provisioning, tenant onboarding, cross-tenant sharing, SaaS billing and
+tenant-specific branding are **all out of V1 scope** —
+[ADR-002](../architecture/decisions/ADR-002-v1-single-company-scope.md),
+[future-productization](../future-productization/README.md).
+
+The governing principle: **build for one company now, keep future productization possible,
+but do not implement multi-tenancy prematurely.**
+
+Service types PRO-TECH may offer — to be confirmed by research, not assumed:
 
 - Car detailing
 - Ceramic coating
@@ -48,6 +67,11 @@ This lifecycle is `CONFIRMED` as the product's intended spine. The **detail of e
 
 ## 3. Vision statement — `PROPOSED`
 
+> ⚠️ **Written for the superseded multi-tenant SaaS direction.** The wording below pitches to
+> a market of businesses rather than describing a system for PRO-TECH. It needs reworking and
+> has deliberately **not** been rewritten here, because a replacement needs product owner
+> input rather than a mechanical edit.
+
 > For automotive detailing and appearance businesses that today run on notebooks, WhatsApp
 > threads and spreadsheets, the Platform is an operating system for the workshop: one place
 > where every vehicle carries its full history, every job carries its evidence, and every
@@ -64,7 +88,7 @@ should serve at least one.
 | ID | Goal | Status | Source |
 | --- | --- | --- | --- |
 | `PG-001` | Manage the complete customer and vehicle lifecycle in one system, rather than bookings alone. | `CONFIRMED` | Stated by product owner |
-| `PG-002` | Serve single-branch and multi-branch businesses on the same platform. | `CONFIRMED` | Stated by product owner |
+| `PG-002` | Support PRO-TECH's multi-branch operation — HQ and multiple branches working in one system. | `CONFIRMED` | Restated by product owner, 2026-09-19 (V1 direction change) |
 | `PG-003` | Allow authorized branches within one organization to access relevant customer, vehicle, service and warranty history. | `CONFIRMED` (goal) / `OPEN QUESTION` (rules) | Stated by product owner; rules undefined — [OQ-015](open-questions.md) |
 | `PG-004` | Give every vehicle a durable digital profile (Vehicle Passport) that outlives any single job or staff member. | `PROPOSED` | Derived from stated product concept |
 | `PG-005` | Turn completed work into repeat business through maintenance reminders and structured follow-up. | `PROPOSED` | Derived from stated lifecycle and CRM direction |
@@ -74,6 +98,11 @@ should serve at least one.
 > it can be confirmed or struck, not so it can be assumed.
 
 ## 5. Target market — `PROPOSED`
+
+> ⚠️ **Affected by the V1 direction change.** If V1 serves one named company, "target market"
+> applies to future productization rather than to V1. Whether PRO-TECH is the market or the
+> first customer is an open product owner decision — see the impact analysis. Left unchanged
+> pending that decision.
 
 - **Geography:** Malaysian SME market is expected to matter, particularly for WhatsApp-based
   customer communication. Whether Malaysia is the only launch market is not decided —
@@ -108,3 +137,4 @@ open questions rather than asserted as exclusions in [scope.md](scope.md#4-scope
 | Date | Change | By |
 | --- | --- | --- |
 | 2026-09-19 | Created during Phase 0 initialization. Direction restated from product owner; goals `PG-001`–`PG-006` drafted. | Drafted by Claude Code |
+| 2026-09-19 | **V1 direction change.** §1 rewritten: V1 is a single-company multi-branch system for PRO-TECH, not a multi-tenant SaaS. `PG-002` restated accordingly. §3 and §5 flagged as written for the superseded direction — not rewritten, because replacements need product owner input. | Product owner decision |

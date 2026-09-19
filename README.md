@@ -1,13 +1,23 @@
-# Automotive Detailing SaaS — Product Documentation
+# PRO-TECH Automotive Detailing Management System — Product Documentation
 
-> **Working repository name.** The product does not have a confirmed name yet — see
-> [OQ-001](docs/product/open-questions.md). Throughout this repository the product is
-> referred to as **"the Platform"**. Renaming the repository later is expected and cheap.
+> **Working repository name.** The repository is still named for the superseded
+> multi-tenant SaaS direction. The *system* does not have a confirmed name of its own either
+> — PRO-TECH is the company, not the product — see
+> [OQ-001](docs/product/open-questions.md). Renaming both is expected and cheap.
+>
+> Older documents may still refer to the product as **"the Platform"**. That term is now
+> reserved for the deferred multi-tenant concept and should not be used for V1 — see the
+> [glossary](docs/product/glossary.md).
 
 This repository is the **single source of truth** for the product. It contains the product
 vision, scope, terminology, epics, features, user stories, business rules, workflows,
-architecture decisions and test strategy for a multi-tenant SaaS platform serving
-automotive detailing and related automotive appearance/service businesses.
+architecture decisions and test strategy for the system.
+
+**V1 is a single-company, multi-branch Automotive Detailing Management System for PRO-TECH**
+— not a multi-tenant SaaS. There is a longer-term intention to productize it for other
+detailing businesses, but multi-tenancy is explicitly **not** a V1 requirement. See
+[ADR-002](docs/architecture/decisions/ADR-002-v1-single-company-scope.md) and
+[docs/future-productization/](docs/future-productization/README.md).
 
 ## Current phase
 
@@ -93,11 +103,12 @@ Full conventions: [docs/meta/identifiers-and-status.md](docs/meta/identifiers-an
 │   ├── modules/               MOD-### — product areas of the application
 │   ├── ui-ux/                 Interface principles, flows, wireframe notes
 │   ├── architecture/          System design + decisions/ (ADRs)
-│   ├── data/                  Conceptual data model, ownership, tenancy boundaries
+│   ├── data/                  Conceptual data model, ownership, branch boundaries
 │   ├── api/                   API design (deferred until architecture exists)
-│   ├── security/              Tenancy isolation, authorization, privacy, audit
+│   ├── security/              Authorization, branch scoping, privacy, audit
 │   ├── testing/               Test strategy, test cases, traceability to AC
 │   ├── roadmap/               Phases and horizons
+│   ├── future-productization/ Deferred multi-tenant SaaS concerns — NOT V1 requirements
 │   └── meta/                  Documentation standards, identifiers, traceability
 └── templates/                 Copy-from templates for every document type
 ```
