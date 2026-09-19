@@ -9,8 +9,8 @@ updated: 2026-09-19
 
 # Open Questions Register
 
-The single place where **known unknowns** live. The register itself is `CONFIRMED` as a
-process artifact; every question in it is by definition unanswered.
+The single place where **known unknowns** live. The register itself is `ACTIVE` — in force as
+a process artifact; every question in it is by definition unanswered.
 
 **Rule:** when information is missing, a question is added here. It is never replaced by a
 plausible assumption. See [AGENTS.md rule 3](../../AGENTS.md).
@@ -71,12 +71,32 @@ but without it, no scope decision has a tiebreaker.
 | --- | --- | --- | --- | --- |
 | `OQ-012` | Is a Customer owned by the Organization or by a Branch? | HIGH | The single most consequential modelling decision. Determines duplicate handling, cross-branch visibility, and every authorization check. | OPEN |
 | `OQ-013` | Is a Vehicle unique platform-wide, or per Organization? | HIGH | A platform-wide vehicle identity enables a true "Vehicle Passport" across businesses but raises serious privacy and competitive questions. | OPEN |
-| `OQ-014` | Is cross-**organization** data sharing ever permitted, under any circumstance? | HIGH | Current working assumption is **no**. That must be confirmed, because `OQ-013` pulls in the opposite direction. | OPEN |
+| `OQ-014` | Under what circumstances, if any, should controlled cross-organization data sharing be permitted? | HIGH | [`NFR-001`](non-functional-requirements.md) confirms tenant isolation as a principle while leaving room for controlled cross-organization access defined by a future `CONFIRMED` requirement. This question is what would define one. **Candidate scenarios are research topics, not requirements** — see below. | OPEN |
 | `OQ-015` | What makes a branch "authorized" to access another branch's customer, vehicle, service and warranty history — open by default within the organization, or explicitly granted? | HIGH | `PG-003` is stated as a goal but has no rules. Both readings are defensible and they produce different systems. | OPEN |
 | `OQ-016` | Can one user belong to multiple branches? To multiple organizations? | HIGH | Affects session model, branch switching, and every scoped query. | OPEN |
 | `OQ-017` | What identifies a Vehicle — registration number, VIN, or both? What happens when a plate changes or is transferred? | HIGH | Malaysian plates are transferable between vehicles. Getting this wrong corrupts vehicle history permanently. | OPEN |
 | `OQ-018` | What data residency, retention and PDPA obligations apply? | HIGH | Affects hosting, backups, photo retention, deletion rights. Depends on `OQ-002`. | OPEN |
 | `OQ-040` | What must be audit-logged, who can read the log, and for how long is it kept? | MEDIUM | Audit logging is listed as a platform concern with no definition. | OPEN |
+
+### `OQ-014` — candidate scenarios, held as research topics
+
+Scenarios that *might* one day justify controlled cross-organization access. They are
+recorded so research has something to investigate and so they are not rediscovered from
+scratch later.
+
+**None of these is a requirement, a plan, or an accepted scenario.** They must not be cited
+as justification for any design, and must not be converted into requirements without an
+explicit product owner decision.
+
+| Scenario | What would need investigating |
+| --- | --- |
+| Vehicle Passport portability | Whether a vehicle's history should follow it between businesses, and on whose authority |
+| Warranty verification | Whether a warranty issued by one organization needs to be verifiable by another |
+| Franchise / network access | Whether related but separate organizations ever share a customer or vehicle view |
+| Customer-authorized history sharing | Whether the vehicle owner — rather than either business — can authorize a transfer of their own history |
+
+Each carries privacy, consent, competitive and possibly legal consequences that are not yet
+understood. `OQ-013` and `OQ-018` are closely related.
 
 ## 4. Domain semantics
 
@@ -132,4 +152,5 @@ but without it, no scope decision has a tiebreaker.
 | Date | Change | By |
 | --- | --- | --- |
 | 2026-09-19 | Register created during Phase 0 initialization with `OQ-001`–`OQ-040`. | Drafted by Claude Code |
+| 2026-09-19 | `OQ-014` rewritten from "Is cross-organization data sharing ever permitted?" to "Under what circumstances, if any, should controlled cross-organization data sharing be permitted?". Status stays `OPEN` — the question is **not** answered. Candidate scenarios recorded as research topics only, explicitly not requirements. | Product owner decision |
 | 2026-09-19 | Review cleanup. Added `OQ-041` — `OQ-009` was being cited for two different questions, customer login and staff device (finding 3). Rewrote the "eight that block the most" table so it no longer restates question text; the two wordings of `OQ-009` had already diverged (finding 4). | Drafted by Claude Code |

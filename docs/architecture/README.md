@@ -36,7 +36,7 @@ These are architectural facts, not choices, and they hold whatever stack is sele
 | # | Constraint | Source |
 | --- | --- | --- |
 | 1 | Multi-tenant: one deployment serves many organizations, isolated from each other | Product direction |
-| 2 | Tenant isolation may never be bypassed, including in tests and local development | [NFR-001](../product/non-functional-requirements.md) |
+| 2 | Tenant isolation is enforced throughout and may never be bypassed, including in tests, development and demonstrations | [NFR-001](../product/non-functional-requirements.md) |
 | 3 | Hierarchy Platform → Organization → Branch → Users must be representable | Product direction (`PROPOSED`) |
 | 4 | Image-heavy: inspections generate many photographs per job | `EPIC-010` |
 | 5 | Document generation is required (quotations, warranties, receipts) | Product direction |
@@ -75,3 +75,4 @@ Named here so none of them is taken silently
 | Date | Change | By |
 | --- | --- | --- |
 | 2026-09-19 | Created during Phase 0 initialization. Known constraints recorded; pending decisions named; no technology selected. | Drafted by Claude Code |
+| 2026-09-19 | Constraint 2 reworded to match the rewritten `NFR-001`. No technology decision made. | Product owner decision |

@@ -20,8 +20,8 @@ established now is how tests relate to requirements, and that does not depend on
    [Definition of Ready](../agile/definition-of-ready.md) requires QA to believe the criteria
    are testable.
 3. **Tenant isolation is tested explicitly**, not assumed. For every feature touching tenant
-   data there is a test proving a user of one organization cannot reach another's —
-   [NFR-001](../product/non-functional-requirements.md).
+   data there is a test proving a user cannot reach data outside their authorized
+   organizational context — [NFR-001](../product/non-functional-requirements.md).
 4. **Authorization is tested negatively.** Proving the permitted role can act is half a test;
    the other half proves the forbidden role cannot.
 5. **Testing happens inside the sprint.** Work is not `DONE` until it is verified —
@@ -58,3 +58,4 @@ No test cases exist, because no user stories exist.
 | Date | Change | By |
 | --- | --- | --- |
 | 2026-09-19 | Created during Phase 0 initialization. Requirement-to-test traceability established; strategy deferred to Phase 1. | Drafted by Claude Code |
+| 2026-09-19 | Isolation testing principle reworded to match the rewritten `NFR-001`. | Product owner decision |
