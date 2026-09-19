@@ -13,7 +13,7 @@ reader — or an agent — find the same information in the same place every tim
 | [workflow-template.md](workflow-template.md) | `WF-###` | `docs/workflows/` |
 | [module-template.md](module-template.md) | `MOD-###` | `docs/modules/` |
 | [adr-template.md](adr-template.md) | `ADR-###` | `docs/architecture/decisions/` |
-| [open-question-template.md](open-question-template.md) | `OQ-###` | `docs/product/open-questions.md` |
+| [open-question-template.md](open-question-template.md) | `OQ-###` (long form only) | `docs/product/open-questions/` |
 | [sprint-template.md](sprint-template.md) | `SPRINT-##` | `docs/agile/sprints/` |
 
 ## Rules for using a template

@@ -1,7 +1,7 @@
 ---
 title: Documentation Index
 type: index
-status: CONFIRMED
+status: ACTIVE
 owner: TBD
 created: 2026-09-19
 updated: 2026-09-19
@@ -25,7 +25,7 @@ and [AGENTS.md](../AGENTS.md).
 | [product/personas.md](product/personas.md) | `PROPOSED` | Who uses it — candidates only, no research yet |
 | [product/glossary.md](product/glossary.md) | `PROPOSED` | What our words mean. **Read before writing.** |
 | [product/non-functional-requirements.md](product/non-functional-requirements.md) | `PROPOSED` | Quality constraints, `NFR-###` |
-| [product/open-questions.md](product/open-questions.md) | `CONFIRMED` (process) | **Everything not decided — 40 questions** |
+| [product/open-questions.md](product/open-questions.md) | `ACTIVE` | **Everything not decided — 41 questions** |
 
 ## Agile process
 
@@ -79,7 +79,7 @@ and [AGENTS.md](../AGENTS.md).
   level, the phase we are in, and two binding security principles.
 - **`PROPOSED`:** everything about the product — vision wording, goals, scope, epics,
   modules, personas, glossary definitions.
-- **Open:** 40 questions, none answered. The eight that block the most are listed at the top
+- **Open:** 41 questions, none answered. The eight that block the most are listed at the top
   of [open-questions.md](product/open-questions.md).
 
 **Nothing here is ready to build against.**

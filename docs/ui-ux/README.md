@@ -5,7 +5,7 @@ status: PROPOSED
 owner: TBD
 created: 2026-09-19
 updated: 2026-09-19
-related: [OQ-009, OQ-011, OQ-038]
+related: [OQ-009, OQ-011, OQ-038, OQ-041]
 ---
 
 # UI / UX
@@ -16,7 +16,8 @@ holds them when they exist.
 ## What is known — `PROPOSED`
 
 - A **responsive web interface** is listed as a platform concern. Whether there is also a
-  native mobile app is [OQ-009](../product/open-questions.md).
+  native app for **staff** is [OQ-041](../product/open-questions.md). Whether **customers**
+  get any interface at all is [OQ-009](../product/open-questions.md).
 - Parts of the product are used **on the workshop floor**: inspection photography, job
   progress. Device, lighting, glove and connectivity realities there are unknown —
   `SPIKE-007`, [OQ-038](../product/open-questions.md).

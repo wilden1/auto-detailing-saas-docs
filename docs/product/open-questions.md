@@ -1,7 +1,7 @@
 ---
 title: Open Questions Register
 type: product-doc
-status: CONFIRMED
+status: ACTIVE
 owner: TBD
 created: 2026-09-19
 updated: 2026-09-19
@@ -22,19 +22,24 @@ plausible assumption. See [AGENTS.md rule 3](../../AGENTS.md).
 
 ## The eight that block the most
 
-If only a handful get answered, these are the ones. Each one currently blocks work that
-cannot sensibly start without it.
+If only a handful get answered, these are the ones.
 
-| ID | Question | Blocks |
-| --- | --- | --- |
-| `OQ-005` | What does a successful v1 look like, measurably? | Every scope decision; no tiebreaker without it |
-| `OQ-012` | Is a Customer owned by the Organization or by a Branch? | Data model, RBAC, `EPIC-002`, `EPIC-004` |
-| `OQ-015` | What makes a branch "authorized" to see another branch's history — default-open within the organization, or explicit grant? | `PG-003`, security model, `EPIC-002`, `EPIC-003` |
-| `OQ-017` | What identifies a Vehicle — registration number, VIN, or both? What happens when a plate changes? | `EPIC-005`, Vehicle Passport, duplicate handling |
-| `OQ-019` | What roles exist, and what may each role see and do? | `EPIC-003`, every authorization decision |
-| `OQ-028` | Is a Job one visit, or one service within a visit? | `EPIC-009`, `EPIC-010`, `EPIC-011`, `EPIC-012`, pricing, reporting |
-| `OQ-033` | How are WhatsApp messages actually delivered — official Cloud API, a provider, or staff-initiated links? | `EPIC-014`, cost model, compliance, architecture |
-| `OQ-009` | Do customers log in at all, or is this staff-only software? | Roughly doubles or halves the product |
+**Each question is worded once, in its section below.** This table is ordering and urgency
+only — deliberately not a second copy of the question text, which would drift.
+
+| # | ID | Area | Why this one first |
+| --- | --- | --- | --- |
+| 1 | `OQ-028` | Domain semantics | Everything downstream — inspection, QC, payment, warranty, reporting, pricing — attaches to whatever a Job turns out to be |
+| 2 | `OQ-012` | Tenancy | Determines duplicate handling, cross-branch visibility, and every authorization check |
+| 3 | `OQ-015` | Tenancy | `PG-003` is a stated goal with no rules; both readings are defensible and produce different systems |
+| 4 | `OQ-019` | Domain semantics | `EPIC-003` cannot start, and every other epic's authorization criteria depend on it |
+| 5 | `OQ-017` | Tenancy | Malaysian plates are transferable; getting this wrong corrupts vehicle history permanently |
+| 6 | `OQ-026` | Domain semantics | Core commercial logic of `EPIC-012`, with legal weight. Read alongside `OQ-027` |
+| 7 | `OQ-033` | Integration | Cost, approval and compliance differ enormously; shapes `EPIC-014` and the architecture |
+| 8 | `OQ-009` | Scope | Roughly doubles or halves the product |
+
+`OQ-005` (success measures) sits outside this ranking because it is not a domain question —
+but without it, no scope decision has a tiebreaker.
 
 ---
 
@@ -95,6 +100,7 @@ cannot sensibly start without it.
 | ID | Question | Impact | Why it matters | Status |
 | --- | --- | --- | --- | --- |
 | `OQ-038` | Must the Platform work with poor or no connectivity on the workshop floor? | HIGH | Offline capability is an architectural decision made at the start or never. Inspections with photos are captured exactly where signal is worst. | OPEN |
+| `OQ-041` | Do **staff** need a native mobile app, or is responsive web enough on a phone or tablet? | MEDIUM | Independent of whether *customers* log in (`OQ-009`). Camera access, offline capture and app-store distribution are the deciding factors, and they land on `EPIC-010`. | OPEN |
 | `OQ-039` | How many photos per inspection, at what quality, kept for how long? | HIGH | Drives storage cost, upload UX and the whole file-handling design. | OPEN |
 | `OQ-033` | How are WhatsApp messages delivered — WhatsApp Cloud API, a third-party provider, or staff-initiated `wa.me` links? | HIGH | Cost, approval process, template rules and compliance differ enormously. The cheapest option may also be the only viable one for SMEs. | OPEN |
 
@@ -126,3 +132,4 @@ cannot sensibly start without it.
 | Date | Change | By |
 | --- | --- | --- |
 | 2026-09-19 | Register created during Phase 0 initialization with `OQ-001`–`OQ-040`. | Drafted by Claude Code |
+| 2026-09-19 | Review cleanup. Added `OQ-041` — `OQ-009` was being cited for two different questions, customer login and staff device (finding 3). Rewrote the "eight that block the most" table so it no longer restates question text; the two wordings of `OQ-009` had already diverged (finding 4). | Drafted by Claude Code |
